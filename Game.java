@@ -2,13 +2,14 @@ package snakeGame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.SplittableRandom;
-
+import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -31,6 +32,7 @@ public class Game extends JFrame implements ActionListener {
 	private JButton pause, speedUp, slowDown;
 	private JFrame frame;
 	private static final int width = 400, height = 400;
+	//cells are in steps of 40
 	private int fx, fy;
 
 	public static void main(String[] args) {
@@ -45,16 +47,19 @@ public class Game extends JFrame implements ActionListener {
 		frame.setPreferredSize(new Dimension(width, height));
 		
 		SplittableRandom rng = new SplittableRandom();
-		
-		Food food = new Food(fx, fy);
+//		fx = rng.nextInt(10);
+//		fy = rng.nextInt(10);
+		fx = 4;
+		fy = 4;
+		Food food = new Food(fx * 10, fy * 10);
 		
 		JPanel buttons = buttons();
 		JPanel gamePanel = gamePanel();
 		
 		content.add(gamePanel);
-		
 		//content.add(buttons);
-		content.getComponent(1).setBackground(new Color(10).black);
+		content.getComponent(0).setBackground(new Color(10).black);
+		
 		
 		frame.pack();
 		frame.setVisible(true);
