@@ -4,19 +4,33 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.SplittableRandom;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author Noahyoda
+ * 
+ * TODO:
+ * add buttons back to frame later
+ * setup grid coordinate system
+ * make snake class
+ * add food to frame
+ * make food appear at random x/y
+ *
+ */
+
 public class Game extends JFrame implements ActionListener {
 	
 	private JButton pause, speedUp, slowDown;
 	private JFrame frame;
-	private static final int width = 400, height = 400, margin = 20;
+	private static final int width = 400, height = 400;
+	private int fx, fy;
 
 	public static void main(String[] args) {
 		new Game();
@@ -25,8 +39,6 @@ public class Game extends JFrame implements ActionListener {
 	public Game() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		layout();
-		
-		
 	}
 	
 	public void layout() {
@@ -35,14 +47,17 @@ public class Game extends JFrame implements ActionListener {
 		content.setLayout(new BorderLayout());
 		frame.setPreferredSize(new Dimension(width, height));
 		
+		SplittableRandom rng = new SplittableRandom();
+		
+		Food food = new Food(fx, fy);
+		
 		JPanel buttons = buttons();
 		JPanel gamePanel = gamePanel();
 		
 		content.add(gamePanel);
-		content.add(buttons);
+		
+		//content.add(buttons);
 		content.getComponent(1).setBackground(new Color(10).black);
-		
-		
 		
 		frame.pack();
 		frame.setVisible(true);
