@@ -1,7 +1,10 @@
 package snakeGame;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,27 +31,43 @@ public class Game extends JFrame implements ActionListener {
 	
 	public void layout() {
 		frame = new JFrame();
+		Container content = frame.getContentPane();
+		content.setLayout(new BorderLayout());
 		frame.setPreferredSize(new Dimension(width, height));
-		frame.getContentPane().setBackground(new Color(0).black);
+		
 		JPanel buttons = buttons();
-		frame.add(buttons);
-		buttons.setLocation(width / 2, height - 10);
+		JPanel gamePanel = gamePanel();
+		
+		content.add(gamePanel);
+		content.add(buttons);
+		content.getComponent(1).setBackground(new Color(10).black);
 		
 		
 		frame.pack();
 		frame.setVisible(true);
 	}
 	
+	public JPanel gamePanel() {
+		JPanel pain = new JPanel();
+		return pain;
+	}
+	
 	public JPanel buttons() {
 		JPanel buttonBar = new JPanel();
+		Color btnColor = new Color(10).cyan;
 		
 		pause = new JButton();
+		pause.setBackground(btnColor);
 		speedUp = new JButton();
+		speedUp.setBackground(btnColor);
 		slowDown = new JButton();
+		slowDown.setBackground(btnColor);
 		
 		buttonBar.add(pause);
 		buttonBar.add(speedUp);
 		buttonBar.add(slowDown);
+		
+		
 		
 		return buttonBar;
 	}
