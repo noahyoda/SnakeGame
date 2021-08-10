@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Game extends JFrame implements ActionListener {
 	
@@ -29,10 +30,27 @@ public class Game extends JFrame implements ActionListener {
 		frame = new JFrame();
 		frame.setPreferredSize(new Dimension(width, height));
 		frame.getContentPane().setBackground(new Color(0).black);
+		JPanel buttons = buttons();
+		frame.add(buttons);
+		buttons.setLocation(width / 2, height - 10);
 		
 		
 		frame.pack();
 		frame.setVisible(true);
+	}
+	
+	public JPanel buttons() {
+		JPanel buttonBar = new JPanel();
+		
+		pause = new JButton();
+		speedUp = new JButton();
+		slowDown = new JButton();
+		
+		buttonBar.add(pause);
+		buttonBar.add(speedUp);
+		buttonBar.add(slowDown);
+		
+		return buttonBar;
 	}
 
 	@Override
