@@ -8,9 +8,8 @@ import javax.swing.JFrame;
 
 public class Game extends JFrame implements ActionListener {
 	
-	private JButton pause;
-	private JButton speedUp;
-	private JButton slowDown;
+	private JButton pause, speedUp, slowDown;
+	private JFrame frame;
 	private static final int width = 400;
 	private static final int height = 400;
 
@@ -26,8 +25,8 @@ public class Game extends JFrame implements ActionListener {
 	}
 	
 	public void layout() {
-		JFrame frame = new JFrame();
-		
+		frame = new JFrame();
+		frame.setSize(width, height);
 		
 	}
 
