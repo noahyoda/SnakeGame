@@ -43,6 +43,7 @@ public class Game extends JFrame implements ActionListener {
 		content.getComponent(1).setBackground(new Color(10).black);
 		
 		
+		
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -66,8 +67,6 @@ public class Game extends JFrame implements ActionListener {
 		buttonBar.add(pause);
 		buttonBar.add(speedUp);
 		buttonBar.add(slowDown);
-		
-		
 		
 		return buttonBar;
 	}
