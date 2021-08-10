@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.SplittableRandom;
@@ -38,10 +39,6 @@ public class Game extends JFrame implements ActionListener {
 	
 	public Game() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		layout();
-	}
-	
-	public void layout() {
 		frame = new JFrame();
 		Container content = frame.getContentPane();
 		content.setLayout(new BorderLayout());
@@ -61,6 +58,11 @@ public class Game extends JFrame implements ActionListener {
 		
 		frame.pack();
 		frame.setVisible(true);
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
 	}
 	
 	public JPanel gamePanel() {
