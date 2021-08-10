@@ -1,5 +1,7 @@
 package snakeGame;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,8 +12,7 @@ public class Game extends JFrame implements ActionListener {
 	
 	private JButton pause, speedUp, slowDown;
 	private JFrame frame;
-	private static final int width = 400;
-	private static final int height = 400;
+	private static final int width = 400, height = 400, margin = 20;
 
 	public static void main(String[] args) {
 		new Game();
@@ -26,8 +27,12 @@ public class Game extends JFrame implements ActionListener {
 	
 	public void layout() {
 		frame = new JFrame();
-		frame.setSize(width, height);
+		frame.setPreferredSize(new Dimension(width, height));
+		frame.getContentPane().setBackground(new Color(0).black);
 		
+		
+		frame.pack();
+		frame.setVisible(true);
 	}
 
 	@Override
