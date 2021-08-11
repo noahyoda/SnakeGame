@@ -70,6 +70,12 @@ public class Game extends JFrame implements ActionListener {
 		super.paintComponent(g);
 	}
 
+	/**
+	 * container method to create and style all the buttons that will be added as a
+	 * JPanel later
+	 * 
+	 * @return JPanel with all the buttons
+	 */
 	public JPanel buttons() {
 		JPanel buttonBar = new JPanel();
 		Color btnColor = new Color(10).cyan;
