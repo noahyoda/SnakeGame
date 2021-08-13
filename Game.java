@@ -6,8 +6,10 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.SplittableRandom;
 import java.awt.Graphics;
 import javax.swing.JButton;
@@ -30,8 +32,21 @@ public class Game extends JFrame implements ActionListener {
 	private static final int width = 400, height = 400;
 	// cells are in steps of 40
 	private int fx, fy;
+	private static ArrayList<ArrayList<Point>> grid;
 
 	public static void main(String[] args) {
+		//fill grid array list with every playable point
+		grid = new ArrayList<ArrayList<Point>>();
+		for(int i = 0; i < 10; i++) {
+			//fill new column list with points
+			ArrayList<Point> temp = new ArrayList<>();
+			for(int ii = 0; ii < 10; ii++) {
+				temp.add(new Point(i * 40, ii * 40));
+			}
+			//add column to grid
+			grid.add(temp);
+		}
+		//start the game
 		new Game();
 	}
 
@@ -48,9 +63,10 @@ public class Game extends JFrame implements ActionListener {
 		SplittableRandom rng = new SplittableRandom();
 		// fx = rng.nextInt(10);
 		// fy = rng.nextInt(10);
-		fx = 4;
-		fy = 4;
-		Food food = new Food(fx * 10, fy * 10);
+		//temp coordinates while testing getting food into the game
+		fx = 160;
+		fy = 160;
+		Food food = new Food(fx, fy);
 
 		// button elements are commented out for the time being to focus on the games
 		// main aspects first
@@ -65,10 +81,10 @@ public class Game extends JFrame implements ActionListener {
 		frame.setVisible(true);
 	}
 
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-	}
+//	@Override
+//	protected void paintComponent(Graphics g) {
+//		super.paintComponent(g);
+//	}
 
 	/**
 	 * container method to create and style all the buttons that will be added as a
