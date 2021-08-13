@@ -33,6 +33,8 @@ public class Game extends JFrame implements ActionListener {
 	// cells are in steps of 40
 	private int fx, fy;
 	private static ArrayList<ArrayList<Point>> grid;
+	private Food food;
+	private Snake player;
 
 	public static void main(String[] args) {
 		//fill grid array list with every playable point
@@ -66,7 +68,8 @@ public class Game extends JFrame implements ActionListener {
 		//temp coordinates while testing getting food into the game
 		fx = 160;
 		fy = 160;
-		Food food = new Food(fx, fy);
+		food = new Food(fx, fy);
+		player = new Snake(new Point(80, 80));
 
 		// button elements are commented out for the time being to focus on the games
 		// main aspects first
@@ -80,11 +83,19 @@ public class Game extends JFrame implements ActionListener {
 		frame.pack();
 		frame.setVisible(true);
 	}
-
-//	@Override
-//	protected void paintComponent(Graphics g) {
-//		super.paintComponent(g);
-//	}
+	
+	
+	/**
+	 * main loop
+	 */
+	public void run() {
+		while(true) {
+			//move interval
+			//check collision
+			//extend snake (and move food), end loop, or remove old tail end
+			//pause/delay before next frame
+		}
+	}
 
 	/**
 	 * container method to create and style all the buttons that will be added as a
