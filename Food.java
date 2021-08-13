@@ -3,6 +3,7 @@ package snakeGame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.geom.Ellipse2D;
 
 public class Food {
@@ -19,6 +20,11 @@ public class Food {
 	public Food(int x, int y) {
 		this.x = x;
 		this.y = y;
+	}
+	
+	public Food(Point location) {
+		this.x = location.x;
+		this.y = location.y;
 	}
 
 	/**
